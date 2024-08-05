@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import { Button, Table, Input, Spin, DatePicker, Select, Modal, Option } from 'antd';
+import { Button, Table, Input, Spin, DatePicker, Select, Modal } from 'antd';
 import axiosInstance from '../../api/axiosInstance';
 import { useRouter, useParams } from 'next/navigation';
 import { useRouter as route } from 'next/router'
@@ -88,7 +88,7 @@ const Page = () => {
                     let dummyData = []
                     let data = res.data
                     for (let i = 0; i < data.length; i++) {
-                        dummyData.push(<Option value={data[i].id}>{data[i].nama} | {data[i].harga} | {data[i].kode}</Option>)
+                        dummyData.push(<Select.Option value={data[i].id}>{data[i].nama} | {data[i].harga} | {data[i].kode}</Select.Option>)
                     }
                     setListBarangItem(data)
                     setListBarang(dummyData);
@@ -189,7 +189,7 @@ const Page = () => {
                     let dummyData = []
                     let data = res.data
                     for (let i = 0; i < data.length; i++) {
-                        dummyData.push(<Option value={data[i].id}>{data[i].name} | {data[i].telp} | {data[i].kode}</Option>)
+                        dummyData.push(<Select.Option value={data[i].id}>{data[i].name} | {data[i].telp} | {data[i].kode}</Select.Option>)
                     }
 
                     setListCustomer(dummyData);
